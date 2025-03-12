@@ -1,0 +1,10 @@
+# folders
+
+node_modules
+dist/
+
+# files
+
+.env
+*.txt
+*.log
