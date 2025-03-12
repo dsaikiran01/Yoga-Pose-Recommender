@@ -1,13 +1,13 @@
-import express from "express";
-import admin from "firebase-admin";
-import bodyParser from "body-parser";
-import { VertexAIEmbeddings } from "@google-cloud/vertexai";
-import { FirestoreVectorStore } from "@google-cloud/firestore";
-import textToSpeech from "@google-cloud/text-to-speech";
-import dotenv from "dotenv";
-import cors from "cors";
-import path from "path";
-import url from "url";
+const express = require('express');
+const admin = require('firebase-admin');
+const bodyParser = require('body-parser');
+const { VertexAI } = require('@google-cloud/vertexai');
+const { FirestoreVectorStore } = require('@google-cloud/firestore');
+const textToSpeech = require('@google-cloud/text-to-speech');
+const dotenv = require('dotenv');
+const cors = require('cors');
+const path = require('path');
+const url = require('url');
 
 dotenv.config();
 
@@ -20,7 +20,7 @@ admin.initializeApp({
 
 const db = admin.firestore();
 const ttsClient = new textToSpeech.TextToSpeechClient();
-const embedding = new VertexAIEmbeddings({
+const embedding = new VertexAI({
   projectId: process.env.GCP_PROJECT_ID,
   location: process.env.GCP_LOCATION,
   modelName: process.env.GCP_EMBEDDING_MODEL_NAME,
